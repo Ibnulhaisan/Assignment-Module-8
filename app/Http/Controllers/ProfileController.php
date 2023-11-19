@@ -12,6 +12,7 @@ class ProfileController extends Controller
       $age = "75";
       
       $data = ['id'=>$id, 'name' => $name, 'age' => $age];
+  
         $name="access_token";
         $value="123-XYZ";
         $minutes=1;
@@ -21,9 +22,9 @@ class ProfileController extends Controller
         $httpOnly=true;
 
 
-        return response()->json($data)->cookie(
+        return response()->json([$data],200)->cookie(
             $name,$value,$minutes,$path,$domain,$secure,$httpOnly
-        )->setStatusCode(200);
+        );
    
     }
 
